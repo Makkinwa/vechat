@@ -1,0 +1,18 @@
+version: '3.2'
+services: 
+ db:
+   image: mysql:8.0.19
+   container_name: mysql
+   restart: unless-stopped
+   ports:
+    - "3306:3306"
+   environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=data
+    - MYSQL_USER=admin
+    - MYSQL_PASSWORD=pass
+   command:
+    - mysqld
+   volumes:
+    - "./mysql:/var/lib/mysql"
+ 
